@@ -30,7 +30,8 @@ export function BurnForJoke() {
 
   if (!address) {
     return (
-      <div className="card hover:shadow-xl transition-shadow duration-300">
+      <div className="card group hover:scale-105 transition-transform duration-300">
+        <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-orange-500 opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
         <h2 className="text-2xl font-bold mb-4 text-gray-800">Burn ZBUF 🔥</h2>
         <p className="text-gray-600">Connect your wallet to burn tokens</p>
       </div>
@@ -38,7 +39,8 @@ export function BurnForJoke() {
   }
 
   return (
-    <div className="card hover:shadow-xl transition-shadow duration-300">
+    <div className="card group hover:scale-105 transition-transform duration-300">
+      <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-orange-500 opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
       <h2 className="text-2xl font-bold mb-4 text-gray-800">Burn ZBUF 🔥</h2>
       <div className="space-y-6">
         <div>
@@ -62,7 +64,10 @@ export function BurnForJoke() {
         <button
           onClick={handleBurn}
           disabled={isConfirming || !amount}
-          className="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-red-600 to-orange-600 text-white font-medium transition-all hover:from-red-700 hover:to-orange-700 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full px-6 py-3 rounded-xl bg-gradient-to-r from-red-600 to-orange-600 text-white font-medium 
+          transition-all duration-300 hover:from-red-700 hover:to-orange-700 
+          shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed
+          hover:scale-105 active:scale-95"
         >
           {isConfirming ? (
             <div className="flex items-center justify-center space-x-2">
@@ -73,6 +78,11 @@ export function BurnForJoke() {
             'Burn Tokens'
           )}
         </button>
+        {isConfirming && (
+          <p className="text-sm text-gray-500 text-center animate-pulse">
+            Please confirm the transaction in your wallet
+          </p>
+        )}
       </div>
     </div>
   )
